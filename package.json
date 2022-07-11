@@ -15,6 +15,7 @@
   "dependencies": {
     "@types/chrome": "^0.0.193",
     "@types/node": "^18.0.3",
+    "bootstrap": "^5.2.0-beta1",
     "cheerio": "^1.0.0-rc.12",
     "copy-webpack-plugin": "^11.0.0",
     "got": "^12.1.0",

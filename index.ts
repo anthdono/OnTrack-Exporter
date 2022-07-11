@@ -1,8 +1,8 @@
-// import {open} from 'node:fs/promises';
-// import process from 'node:process';
-// import cheerio from 'cheerio'
-// import {writeFileSync} from "fs";
-// import got from 'got';
+import {open} from 'node:fs/promises';
+import process from 'node:process';
+import cheerio from 'cheerio'
+import {writeFileSync} from "fs";
+import got from 'got';
 
 import jsdom, {JSDOM, FileOptions} from 'jsdom';
 import request from 'request';
@@ -14,7 +14,6 @@ import request from 'request';
 
 const login = async () => {
 
-  const url = 'https://ontrack.deakin.edu.au/#/projects/48499/dashboard/1.1P';
 
   // request(url, (error, response) => {
 
@@ -33,12 +32,6 @@ const login = async () => {
     }
   }
 
-  options.cookieJar!.setCookie("_dui=kR/RduL+BKKWCYWQLsekFYJZyY1hNtam5Gz9KGRPQt+Ywet//VV8S1+XNebml0KJwnRCE0Iyz732ZbDbu9IWpw==; TS01984d5f=014c1c1d61056e06eaeb72d4c8affa17c6323a046c42594b3b4029c7ace6aca5d24634d2dbe00afdd712379086af2fa5573c453184;", url, cp);
-  options.cookieJar!.setCookie("doubtfire_user=%7B%22id%22%3A9434%2C%22authenticationToken%22%3A%22E999kaVabUxYHY5xQDDs%22%2C%22role%22%3A%22Student%22%2C%22profile%22%3A%7B%22id%22%3A9434%2C%22student_id%22%3A%22220553381%22%2C%22email%22%3A%22adonoghue%40deakin.edu.au%22%2C%22name%22%3A%22Anthony%20Donoghue%22%2C%22first_name%22%3A%22Anthony%20Jay%22%2C%22last_name%22%3A%22Donoghue%22%2C%22username%22%3A%22adonoghue%22%2C%22nickname%22%3A%22Anthony%22%2C%22receive_task_notifications%22%3Atrue%2C%22receive_portfolio_notifications%22%3Atrue%2C%22receive_feedback_notifications%22%3Atrue%2C%22opt_in_to_research%22%3Atrue%2C%22has_run_first_time_setup%22%3Atrue%2C%22system_role%22%3A%22Student%22%7D%7D;", url, cp);
-  options.cookieJar!.setCookie("_ga2=GA1.1.2058856342.1657164871;", url, cp);
-  options.cookieJar!.setCookie("ga_YEQ6SL40NP=GS1.1.1657164872.1.1.1657164923.0;", url, cp);
-  options.cookieJar!.setCookie("_gid=GA1.3.143835326.1657259633", url, cp);
-  options.cookieJar!.setCookie("_ga_MRD35CQJV9=GS1.1.1657164872.1.1.1657164923.0;", url, cp);
 
   // const dom = new JSDOM("", options);
 
@@ -73,21 +66,6 @@ const login = async () => {
   //   console.log(response);
   // if(error)
   //   console.log(error);
-
-
-  // options.cookieJar!.setCookie("_ga2=GA1.1.2058856342.1657164871;", url, cp);
-  // options.cookieJar!.setCookie("ga_YEQ6SL40NP=GS1.1.1657164872.1.1.1657164923.0;", url, cp);
-
-  /*cookie 1 */
-  // options.cookieJar!.setCookie("_dui=kR/RduL+BKKWCYWQLsekFYJZyY1hNtam5Gz9KGRPQt+Ywet//VV8S1+XNebml0KJwnRCE0Iyz732ZbDbu9IWpw==; TS01984d5f=014c1c1d61056e06eaeb72d4c8affa17c6323a046c42594b3b4029c7ace6aca5d24634d2dbe00afdd712379086af2fa5573c453184;", url, cp);
-
-  // options.cookieJar!.setCookie("_ga_MRD35CQJV9=GS1.1.1657164872.1.1.1657164923.0;", url, cp);
-  // options.cookieJar!.setCookie("_ga=GA1.3.2058856342.1657164871;", url, cp);
-
-  /*cookie 2*/
-  // options.cookieJar!.setCookie("doubtfire_user=%7B%22id%22%3A9434%2C%22authenticationToken%22%3A%22E999kaVabUxYHY5xQDDs%22%2C%22role%22%3A%22Student%22%2C%22profile%22%3A%7B%22id%22%3A9434%2C%22student_id%22%3A%22220553381%22%2C%22email%22%3A%22adonoghue%40deakin.edu.au%22%2C%22name%22%3A%22Anthony%20Donoghue%22%2C%22first_name%22%3A%22Anthony%20Jay%22%2C%22last_name%22%3A%22Donoghue%22%2C%22username%22%3A%22adonoghue%22%2C%22nickname%22%3A%22Anthony%22%2C%22receive_task_notifications%22%3Atrue%2C%22receive_portfolio_notifications%22%3Atrue%2C%22receive_feedback_notifications%22%3Atrue%2C%22opt_in_to_research%22%3Atrue%2C%22has_run_first_time_setup%22%3Atrue%2C%22system_role%22%3A%22Student%22%7D%7D;", url, cp);
-
-  // options.cookieJar!.setCookie("_gid=GA1.3.143835326.1657259633", url, cp);
 
 
   // JSDOM.fromURL(url, options).then((dom) => {
@@ -155,7 +133,6 @@ const isJavaScriptWorking = (): Promise<boolean> => {
 };
 
 const generateReminders = () => {
-  /*
     const file = await open(`${process.cwd()}/frontend.html`);
     const $ = cheerio.load(await file.readFile('utf8'));
 
@@ -179,20 +156,19 @@ const generateReminders = () => {
 
     writeFileSync(`paste.txt`, data_string, "utf8");
 
-  */
 
-  // let v = data[1].replace("", "");
+  let v = data[1].replace("", "");
 
-  // console.log(`${$('.task-data').each((_, field) => {
-  //   const t = $(field).text();
-  //   arr.push(t);
-  //   // console.log($(field).text());
-  // })}`);
+  console.log(`${$('.task-data').each((_, field) => {
+    const t = $(field).text();
+    arr.push(t);
+    console.log($(field).text());
+  })}`);
 
 
-  // console.log(arr[0].text());
+  console.log(arr[0].text());
 
-  // file.close()
+  file.close()
 };
 
 

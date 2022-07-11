@@ -1,27 +1,23 @@
-// console.log("background");
-// chrome.runtime.sendMessage()
-
-// browser.runtime.onMessage.addListener((msg) => {
-//   console.log(msg);
-// });
-
-var imgurl = "https://www.google.com.hk/images/srpr/logo11w.png";
-
-function f() {
-  chrome.downloads.download({url: imgurl});
-  console.log("pressed");
+async function scrape_task() {
+  let tab = await chrome.tabs.query({active: true});
+  if (tab[0].id && tab[0].url?.includes("ontrack.deakin.edu.au")) {
+    chrome.tabs.sendMessage(tab[0].id, {toggle: true})
+  }
 }
 
+const button = document.getElementById('button');
+if (button instanceof HTMLButtonElement) {
+  button.onclick = scrape_task;
+}
 
-// @ts-ignore
-document.getElementById('theButton').onclick = f;
+chrome.runtime.onMessage.addListener((task) => {
+  const textOutput = document.getElementById("textOutput");
+  if (textOutput instanceof HTMLInputElement) {
 
-chrome.runtime.onMessage.addListener((msg) => {
-  // @ts-ignore
-  document.getElementById("textOutput").value = msg;
+    textOutput.value = `reminder ${task.unit} ${task.grade} ${task.title} ${task.due}`;
+  }
 });
 
 
-//
 
 
