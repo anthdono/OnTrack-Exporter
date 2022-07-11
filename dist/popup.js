@@ -1,0 +1,1 @@
+document.getElementById("theButton").onclick=function(){chrome.downloads.download({url:"https://www.google.com.hk/images/srpr/logo11w.png"}),console.log("pressed")},chrome.runtime.onMessage.addListener((e=>{document.getElementById("textOutput").value=e}));

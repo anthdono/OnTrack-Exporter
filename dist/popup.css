@@ -1,0 +1,19 @@
+body {
+    width: 770px;
+    height: 550px;
+}
+
+button {
+    height: 100px;
+    width: 100px;
+    outline: none;
+    margin: 10px;
+    border: none;
+    border-radius: 2px;
+    color: #3691ff;
+}
+
+button.current {
+    box-shadow: 0 0 0 2px #9c3030,
+    0 0 0 4px black;
+}
