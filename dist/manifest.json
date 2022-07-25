@@ -1,7 +1,6 @@
 {
   "name": "ontrack exporter",
-  "description": "a chrome extension that scrapes deakin university ontrack tasks for a given unit, cleaning the data and presenting it in a calendar importable format that represents all submission deadlines",
-
+  "description": "",
   "version": "1.0",
   "manifest_version": 3,
   "content_scripts": [

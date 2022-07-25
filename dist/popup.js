@@ -1,1 +1,30 @@
-({975:function(){var t=this&&this.__awaiter||function(t,n,e,i){return new(e||(e=Promise))((function(o,u){function c(t){try{r(i.next(t))}catch(t){u(t)}}function a(t){try{r(i.throw(t))}catch(t){u(t)}}function r(t){var n;t.done?o(t.value):(n=t.value,n instanceof e?n:new e((function(t){t(n)}))).then(c,a)}r((i=i.apply(t,n||[])).next())}))};const n=document.getElementById("button");n instanceof HTMLButtonElement&&(n.onclick=function(){var n;return t(this,void 0,void 0,(function*(){let t=yield chrome.tabs.query({active:!0});t[0].id&&(null===(n=t[0].url)||void 0===n?void 0:n.includes("ontrack.deakin.edu.au"))&&chrome.tabs.sendMessage(t[0].id,{toggle:!0})}))}),chrome.runtime.onMessage.addListener((t=>{const n=document.getElementById("textOutput");n instanceof HTMLInputElement&&(n.value=`reminder ${t.unit} ${t.grade} ${t.title} ${t.due}`)}))}})[975]();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+function scrape_task() {
+    var _a;
+    return __awaiter(this, void 0, void 0, function* () {
+        let tab = yield chrome.tabs.query({ active: true });
+        if (tab[0].id && ((_a = tab[0].url) === null || _a === void 0 ? void 0 : _a.includes("ontrack.deakin.edu.au"))) {
+            chrome.tabs.sendMessage(tab[0].id, { toggle: true });
+        }
+    });
+}
+const button = document.getElementById('button');
+if (button instanceof HTMLButtonElement) {
+    button.onclick = scrape_task;
+    console.log("button added");
+}
+chrome.runtime.onMessage.addListener((task) => {
+    const textOutput = document.getElementById("textOutput");
+    if (textOutput instanceof HTMLInputElement) {
+        textOutput.value = `reminder ${task.unit} ${task.grade} ${task.title} ${task.due}`;
+    }
+});
+//# sourceMappingURL=popup.js.map

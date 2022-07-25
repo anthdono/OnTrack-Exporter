@@ -1,4 +1,4 @@
-interface task {
+interface ITask {
   unit: string | null
   title: string | null
   due: string | null
@@ -36,7 +36,7 @@ chrome.runtime.onMessage.addListener((msg) => {
     if (title)
       grade_idx = tasks.indexOf(title);
 
-    let task: task = {
+    let task: ITask = {
       title: title,
       unit: unit,
       due: due,

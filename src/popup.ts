@@ -6,16 +6,19 @@ async function scrape_task() {
 }
 
 const button = document.getElementById('button');
+
 if (button instanceof HTMLButtonElement) {
   button.onclick = scrape_task;
+  console.log("button added");
 }
 
-chrome.runtime.onMessage.addListener((task) => {
+chrome.runtime.onMessage.addListener((task: ITask) => {
   const textOutput = document.getElementById("textOutput");
-  if (textOutput instanceof HTMLInputElement) {
 
+  if (textOutput instanceof HTMLInputElement) {
     textOutput.value = `reminder ${task.unit} ${task.grade} ${task.title} ${task.due}`;
   }
+
 });
 
 
